@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='mx-auto'>
+    <div className='m-5'>
       <div>
         <img src={resgateLogo} className="logo react" alt="React logo" />
       </div>
