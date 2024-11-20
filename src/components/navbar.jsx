@@ -16,7 +16,7 @@ export default function Navbar() {
                         <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
                             Home
                         </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
+                        <a className="cursor-pointer py-2" onClick={() => navigate("/pet")} >
                             Adotar
                         </a>
                         <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
@@ -25,8 +25,11 @@ export default function Navbar() {
                         <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
                             Contato
                         </a>
+                        <a className="cursor-pointer py-2" onClick={() => navigate("/adoption")} >
+                            Adocoes (WIP)
+                        </a>
                     </div>
-                    <Button onClick={() => navigate("/")}>
+                    <Button onClick={() => navigate("/login")}>
                         Entrar
                     </Button>
                 </div>
