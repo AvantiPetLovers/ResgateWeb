@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import resgateLogo from './assets/react.svg'
+import resgateLogo from './assets/logo.svg'
 import { Button } from "@/components/ui/button"
 
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='m-5'>
       <div>
-        <img src={resgateLogo} className="logo react" alt="React logo" />
+        <img src={resgateLogo} className="logo" alt="Resgate logo" />
       </div>
 
       <h1>Resgate</h1>
