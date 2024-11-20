@@ -1,26 +1,22 @@
-import { useState } from 'react'
-import resgateLogo from './assets/react.svg'
-import { Button } from "@/components/ui/button"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import AdoptionList from './pages/AdoptionList'
+import Login from './pages/Login'
+import PetDetail from './pages/PetDetail'
+import PetList from './pages/PetList'
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className='m-5'>
-      <div>
-        <img src={resgateLogo} className="logo react" alt="React logo" />
-      </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/adoption" element={<AdoptionList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/pet-detail" element={<PetDetail />} />
+        <Route path="/pet" element={<PetList />} />
+      </Routes>
+    </BrowserRouter>
 
-      <h1>Resgate</h1>
-
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-      </div>
-    </div>
   )
 }
-
-export default App
