@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import resgateLogo from './assets/logo.svg'
+import resgateLogo from '../assets/logo.svg'
 import { Button } from "@/components/ui/button"
 
 
