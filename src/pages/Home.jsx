@@ -1,18 +1,19 @@
 import { useState } from 'react'
-import resgateLogo from '../assets/logo.svg'
 import { Button } from "@/components/ui/button"
+import Navbar from '../components/navbar'
 
 
-function App() {
+export default function Home() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='m-5'>
+    <>
+    <Navbar />
+    <div className='m-20'>
       <div>
-        <img src={resgateLogo} className="logo" alt="Resgate logo" />
+      <h1>Resgate</h1>
       </div>
 
-      <h1>Resgate</h1>
 
       <div className="card">
         <Button onClick={() => setCount((count) => count + 1)}>
@@ -20,7 +21,6 @@ function App() {
         </Button>
       </div>
     </div>
+    </>
   )
 }
-
-export default App
