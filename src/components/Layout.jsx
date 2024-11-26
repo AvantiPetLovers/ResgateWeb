@@ -5,25 +5,23 @@ import { useEffect, useState } from "react";
 
 export default function Layout({ children }) {
   const location = useLocation();
-  const [layoutHidden, setLayoutHidden] = useState();
+  const [layoutVisible, setLayoutVisible] = useState();
 
   useEffect(() => {
-    if(location.pathname === "/login" || location.pathname === "/register") {
-      setLayoutHidden(false)
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      setLayoutVisible(false)
     } else {
-      setLayoutHidden(true)
+      setLayoutVisible(true)
     }
   }, [location])
 
   return (
-    <div className="d-flex flex-column vh-100">
-      {layoutHidden && <Navbar />}
-      <main className="flex-grow-1 py-4" style={{ backgroundColor: "#f8f9fa" }}>
-        <div className="container">
-          {children}
-        </div>
+    <div className="w-screen min-h-screen">
+      {layoutVisible && <Navbar />}
+      <main className={layoutVisible ? "container mx-auto w-full min-h-screen mt-20 bg-slate-800" : ""}>
+        {children}
       </main>
-      {layoutHidden && <Footer />}
+      {layoutVisible && <Footer />}
     </div>
   );
 }

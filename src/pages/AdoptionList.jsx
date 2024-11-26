@@ -6,7 +6,7 @@ export default function AdoptionList() {
 
   return (
     <>
-      <div className="container w-full min-h-screen m-20">
+      <div className="">
         <h1>Essa é a pagina de controle de adocao</h1>
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}

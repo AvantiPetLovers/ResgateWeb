@@ -1,22 +1,26 @@
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
+import { useEffect, useState } from 'react'
+import { findPets } from '../services/ApiService'
 
 
 export default function PetList() {
-  const [count, setCount] = useState(0)
+  const [pets, setPets] = useState()
+
+  // Busca os pets no banco de dados
+  useEffect(() => {
+    const listPets = async () => {
+      const { data } = await findPets();
+      setPets(data);
+    };
+    listPets();
+  }, []);
+
 
   return (
     <>
-      <Navbar />
-      <div className="container w-full min-h-screen m-20">
-        <h1>Essa é a pagina de listagem de pets</h1>
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
+      <div className="grid grid-flow-col gap-4">
+        <div className="col-span-2 bg-blue-100">01</div>
+        <div className="col-span-6 bg-blue-100">02</div>
       </div>
-      <Footer />
     </>
   )
 }
