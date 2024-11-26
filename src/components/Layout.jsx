@@ -18,7 +18,7 @@ export default function Layout({ children }) {
   return (
     <div className="w-screen min-h-screen">
       {layoutVisible && <Navbar />}
-      <main className={layoutVisible ? "container mx-auto w-full min-h-screen mt-20 bg-slate-800" : ""}>
+      <main className={layoutVisible ? "container mx-auto w-full min-h-screen mt-20" : ""}>
         {children}
       </main>
       {layoutVisible && <Footer />}
