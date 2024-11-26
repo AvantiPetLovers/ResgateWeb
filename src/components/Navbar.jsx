@@ -19,16 +19,15 @@ export default function Navbar() {
                         <a className="cursor-pointer py-2" onClick={() => navigate("/pet")} >
                             Adotar
                         </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
-                            Sobre
-                        </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
-                            Contato
-                        </a>
                         <a className="cursor-pointer py-2" onClick={() => navigate("/adoption")} >
-                            Adocoes (WIP)
+                            Controle de adoção
+                        </a>
+                        <a className="cursor-pointer py-2" onClick={() => navigate("/new-pet")} >
+                            Adicionar pet
                         </a>
                     </div>
+
+                    
                     <Button onClick={() => navigate("/login")}>
                         Entrar
                     </Button>
