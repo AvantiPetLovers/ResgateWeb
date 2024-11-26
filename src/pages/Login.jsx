@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import Navbar from '../components/navbar'
 
 
 export default function Login() {
@@ -8,7 +7,6 @@ export default function Login() {
 
   return (
     <>
-      <Navbar /> {/* Remover quando implementar ja que o login nao tem navbar */}
       <div className="container w-full min-h-screen m-20">
         <h1>Essa é a pagina de login</h1>
         <Button onClick={() => setCount((count) => count + 1)}>
