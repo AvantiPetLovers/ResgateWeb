@@ -23,6 +23,7 @@ export default function Login() {
       navigate("/");
     } catch (error) {
       setError(true);
+      console.log(error);
     }
   }
 

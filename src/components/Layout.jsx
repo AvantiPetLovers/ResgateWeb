@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useLocation } from "react-router-dom";

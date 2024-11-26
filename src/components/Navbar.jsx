@@ -26,6 +26,8 @@ export default function Navbar() {
                             Adicionar pet
                         </a>
                     </div>
+
+                    
                     <Button onClick={() => navigate("/login")}>
                         Entrar
                     </Button>
