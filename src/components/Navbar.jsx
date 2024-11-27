@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import resgateLogo from '../assets/logo.svg';
-
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { ApiService } from "../services/ApiService";
-import LoggedUserIcon from "./LoggedUserIcon"; // Importe o novo componente
+import LoggedUserIcon from "./LoggedUserIcon";
 
 export default function Navbar() {
     const [user, setUser] = useState({});

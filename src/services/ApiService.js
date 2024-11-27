@@ -28,7 +28,7 @@ export const ApiService = (token) => {
         findAdoptions: () => api.get('/adoption'),
         findAdoptionByUser: (user_id) => api.get(`/adoption/${user_id}`),
         addAdoption: (adoption) => api.post('/adoption', adoption),
-        approveAdoption: (pet_id, user_id) => api.get(`/adoption/${pet_id}/${user_id}/approve`),
-        rejectAdoption: (pet_id, user_id) => api.get(`/adoption/${pet_id}/${user_id}/reject`),
+        approveAdoption: (pet_id, user_id) => api.put(`/adoption/${pet_id}/${user_id}/approve`),
+        rejectAdoption: (pet_id, user_id) => api.put(`/adoption/${pet_id}/${user_id}/reject`),
     };
 };
