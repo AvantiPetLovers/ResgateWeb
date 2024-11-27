@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Button } from "@/components/ui/button"
 
 
 export default function UserForm() {
@@ -9,9 +8,9 @@ export default function UserForm() {
     <>
       <div className="">
         <h1>Essa é a pagina de cadastro de novo usuario</h1>
-        <Button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </Button>
+        </button>
       </div>
 
     </>

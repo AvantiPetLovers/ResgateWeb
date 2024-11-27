@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Button } from "@/components/ui/button"
 import { useNavigate } from 'react-router-dom';
 import { findPets } from '../services/ApiService';
 import PetCard from '../components/PetCard';
@@ -25,9 +24,9 @@ export default function Home() {
                 <div>
                     <h1>Lorem ipsum Lorem</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde laudantium doloribus voluptas in nam quasi id hic quisquam deserunt rerum molestiae soluta placeat quidem, animi eveniet, sapiente explicabo ea perspiciatis?</p>
-                    <Button onClick={() => navigate("/adoption")}>
+                    <button onClick={() => navigate("/adoption")}>
                         Quero adotar um pet
-                    </Button>
+                    </button>
                 </div>
                 <div>
                     <img src="https://placehold.co/1300x1200" />

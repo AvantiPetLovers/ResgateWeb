@@ -15,7 +15,6 @@ O projeto faz uso das seguintes ferrramentas, verifique as suas documentações:
 - [Vite](https://vite.dev/guide/)
 - [React](https://react.dev/learn)
 - [Tailwind](https://tailwindcss.com/docs/installation)
-- [Shadcnui](https://ui.shadcn.com/docs/components)
 
 **Politica de branchs**
 

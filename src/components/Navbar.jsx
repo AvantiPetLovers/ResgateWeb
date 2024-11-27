@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import resgateLogo from '../assets/logo.svg'
-import { Button } from "@/components/ui/button"
 
 
 export default function Navbar() {
@@ -28,9 +27,9 @@ export default function Navbar() {
                     </div>
 
                     
-                    <Button onClick={() => navigate("/login")}>
+                    <button onClick={() => navigate("/login")}>
                         Entrar
-                    </Button>
+                    </button>
                 </div>
             </div>
         </nav>
