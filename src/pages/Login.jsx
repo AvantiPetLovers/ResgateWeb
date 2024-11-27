@@ -1,14 +1,15 @@
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import { login } from '../services/ApiService';
+import { ApiService } from '../services/ApiService';
 
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const { sign } = useContext(AuthContext);
+  const { sign, token } = useContext(AuthContext);
+  const { login } = ApiService(token);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {

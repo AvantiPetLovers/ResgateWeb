@@ -1,19 +1,23 @@
-import { useEffect, useState } from 'react'
-import { findPets } from '../services/ApiService'
+import { useContext, useEffect, useState } from 'react'
+import { ApiService } from '../services/ApiService'
 import PetCard from '../components/PetCard';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 export default function PetList() {
   const [pets, setPets] = useState([])
+  const { token } = useContext(AuthContext);
 
   // Busca os pets no banco de dados
   useEffect(() => {
+    const { findPets } = ApiService(token);
+
     const listPets = async () => {
       const { data } = await findPets();
       setPets(data);
     };
     listPets();
-  }, []);
+  }, [token]);
 
 
   return (

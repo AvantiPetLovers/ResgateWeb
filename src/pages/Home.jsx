@@ -1,21 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { findPets } from '../services/ApiService';
+import { ApiService } from '../services/ApiService';
 import PetCard from '../components/PetCard';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 export default function Home() {
     const navigate = useNavigate();
     const [pets, setPets] = useState([])
+    const { token } = useContext(AuthContext);
 
     // Busca os pets no banco de dados
     useEffect(() => {
-      const listPets = async () => {
-        const { data } = await findPets();
-        setPets(data.slice(0, 4));
-      };
-      listPets();
-    }, []);
+        const { findPets } = ApiService(token);
+        const listPets = async () => {
+            const { data } = await findPets();
+            setPets(data.slice(0, 4));
+        };
+        listPets();
+    }, [token]);
 
     return (
         <>
