@@ -1,20 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import resgateLogo from '../assets/logo.svg'
+import resgateLogo from '../assets/logo.svg';
 
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { ApiService } from "../services/ApiService";
+import LoggedUserIcon from "./LoggedUserIcon"; // Importe o novo componente
 
 export default function Navbar() {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({});
     const navigate = useNavigate();
-    const { userId, logout, token } = useContext(AuthContext);
+    const { userId, access, token } = useContext(AuthContext);
 
-    // Busca os pets no banco de dados
+    // Busca os dados do usuário logado
     useEffect(() => {
         if (userId) {
             const { findUserById } = ApiService(token);
-
             const getLoggedUser = async () => {
                 const { data } = await findUserById(userId);
                 setUser(data);
@@ -22,7 +22,6 @@ export default function Navbar() {
             getLoggedUser();
         }
     }, [userId, token]);
-
 
     return (
         <nav className="fixed top-0 z-50 w-full bg-cyan-100 shadow-md">
@@ -37,24 +36,23 @@ export default function Navbar() {
                         <a className="cursor-pointer py-2" onClick={() => navigate("/pet")} >
                             Adotar
                         </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/adoption")} >
-                            Controle de adoção
-                        </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/new-pet")} >
-                            Adicionar pet
-                        </a>
-                        <a className="cursor-pointer py-2" onClick={() => { logout(); navigate("/") }} >
-                            Logout
-                        </a>
+                        {access === 'ADMIN' && (
+                            <a className="cursor-pointer py-2" onClick={() => navigate("/adoption")} >
+                                Controle de adoção
+                            </a>
+                        )}
+                        {access === 'ADMIN' && (
+                            <a className="cursor-pointer py-2" onClick={() => navigate("/new-pet")} >
+                                Adicionar pet
+                            </a>
+                        )}
                     </div>
 
                     {userId ? (
-                        <div className="flex items-center space-x-8">
-                            <span className="font-bold text-blue-800">{user.name}</span>
-                            <img src={user.img} alt="User" className="w-16 h-16 object-cover rounded-full" />
-                        </div>
+                        <LoggedUserIcon user={user} />
                     ) : (
-                        <button onClick={() => navigate("/login")}>
+                        <button className="border border-blue-800 text-blue-800 font-semibold py-2 px-4 rounded-full hover:bg-blue-800 hover:text-white transition duration-300"
+                            onClick={() => navigate("/login")}>
                             Entrar
                         </button>
                     )}
@@ -63,5 +61,3 @@ export default function Navbar() {
         </nav>
     );
 }
-
-
