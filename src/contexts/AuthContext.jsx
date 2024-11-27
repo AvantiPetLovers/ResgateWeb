@@ -8,12 +8,12 @@ const AuthProvider = ({children}) => {
     const [access, setAccess] = useState(localStorage.getItem("access"));
 
     const sign = (data) => {
-        setUserId(data.data.id);
+        setUserId(data.userData.id);
         setToken(data.token);
-        setAccess(data.data.access);
-        localStorage.setItem("id", data.data.id);
+        setAccess(data.userData.access);
+        localStorage.setItem("id", data.userData.id);
         localStorage.setItem("token", data.token);
-        localStorage.setItem("access", data.data.access);
+        localStorage.setItem("access", data.userData.access);
     }
 
     const logout = () => {
