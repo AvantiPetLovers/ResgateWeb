@@ -11,9 +11,9 @@ export default function LoggedUserIcon({ user }) {
         <div className="flex items-center space-x-4">
             <span className="font-bold text-blue-800">{user.name}</span>
             <img src={user.img} alt="Icone do usuario" className="w-10 h-10 object-cover rounded-full" />
-            <button className="text-blue-800 hover:text-sky-950"
-                title="Logout"
-                data-tip="Logout"
+            <button className="text-blue-800 hover:text-red-700"
+                title="Sair"
+                data-tip="Sair"
                 onClick={() => {
                     logout()
                     navigate("/")
