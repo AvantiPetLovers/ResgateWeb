@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ApiService } from '../services/ApiService';
-import PetCard from '../components/PetCard';
 import { AuthContext } from '../contexts/AuthContext';
+import PetCard from '../components/PetCard';
+import CustomButton from '../components/CustomButton';
+import { FaChevronRight } from 'react-icons/fa6';
 
 
 export default function Home() {
@@ -42,11 +44,12 @@ export default function Home() {
                         <h1 className="font-bold text-xs ">Quer Adotar?</h1>
                         <span className="font-bold text-2xl text-sky-950">Confira Nossos Pets</span>
                     </div>
-                    <button
+                    <CustomButton
+                        text={<span className='flex items-center gap-2'>Ver mais <FaChevronRight /></span>}
                         onClick={() => navigate("/pet")}
-                        className="border border-sky-950 text-sky-950 font-semibold py-2 px-4 rounded-full hover:bg-sky-950 hover:text-white transition duration-300" >
-                        {'Ver mais >'}
-                    </button>
+                        color="sky"
+                        variant="outlined"
+                    />
                 </div>
                 <div className="flex flex-wrap gap-2 mb-8">
                     {pets.map((pet) => (

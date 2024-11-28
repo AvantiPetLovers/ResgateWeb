@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { ApiService } from "../services/ApiService";
 import LoggedUserIcon from "./LoggedUserIcon";
+import CustomButton from "./CustomButton";
 
 export default function Navbar() {
     const [user, setUser] = useState({});
@@ -50,10 +51,13 @@ export default function Navbar() {
                     {userId ? (
                         <LoggedUserIcon user={user} />
                     ) : (
-                        <button className="border border-blue-800 text-blue-800 font-semibold py-2 px-4 rounded-full hover:bg-blue-800 hover:text-white transition duration-300"
-                            onClick={() => navigate("/login")}>
-                            Entrar
-                        </button>
+                        <CustomButton
+                            text="Entrar"
+                            onClick={() => navigate("/login")}
+                            color="blue"
+                            variant="outlined"
+                        />
+
                     )}
                 </div>
             </div>

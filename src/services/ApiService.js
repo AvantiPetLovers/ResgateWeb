@@ -15,7 +15,7 @@ export const ApiService = (token) => {
 
     return {
         login: (user) => api.post('/login', user),
-        findPets: () => api.get('/pet'),
+        findPets: () => api.get('/pet?status=AVAILABLE'),
         findPetById: (id) => api.get(`/pet/${id}`),
         addPet: (pet) => api.post('/pet', pet),
         updatePet: (id, pet) => api.put(`/pet/${id}`, pet),
