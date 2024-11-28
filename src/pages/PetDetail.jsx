@@ -106,7 +106,7 @@ export default function PetDetail() {
         </table>
       </div>
     </div>
-    <PetListLine title="Outros pets para adotar" subTitle="Veja outros pets para adotar" />
+    <PetListLine title="Não encontrou seu futuro melhor amigo?" subTitle="Veja outros pets para adotar" />
     </>
   );
 }

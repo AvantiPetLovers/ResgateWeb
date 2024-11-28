@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import AdoptionTableLine from '../components/AdoptionTableLine'
 import { AuthContext } from '../contexts/AuthContext';
 import { ApiService } from '../services/ApiService';
+import { FaCalendarDays, FaEllipsisVertical, FaPaw, FaStamp, FaUser } from 'react-icons/fa6';
 
 export default function AdoptionList() {
   const [adoptions, setAdoptions] = useState([]);
@@ -20,14 +21,20 @@ export default function AdoptionList() {
 
 
   return (
-    <div className='flex w-full'>
-      <table className="border border-slate-500 w-full">
+    <div className='flex flex-col gap-8 m-12'>
+      <div className="flex gap-8 mb-8">
+        <h1 className="font-bold text-2xl text-sky-950">Pedidos de adoção</h1>
+        <span className="text-xs font-bold pt-3">{adoptions.length} solicitações encontradas</span>
+      </div>
+
+      <table className="rounded border-gray-300 border">
         <thead>
-          <tr>
-            <th className="border border-slate-600 min-w-5/6">Adotante</th>
-            <th className="border border-slate-600 min-w-5/6">Pet</th>
-            <th className="border border-slate-600 min-w-5/6">Status</th>
-            <th className="border border-slate-600 min-w-5/6">Ações</th>
+          <tr className='text-blue-800 bg-cyan-100'>
+            <th className="font-semibold p-4"><span className='flex items-center gap-2'><FaUser />Adotante</span></th>
+            <th className="font-semibold p-4"><span className='flex items-center gap-2'><FaPaw />Pet</span></th>
+            <th className="font-semibold p-4"><span className='flex items-center gap-2'><FaStamp />Status</span></th>
+            <th className="font-semibold p-4"><span className='flex items-center gap-2'><FaCalendarDays />Data do pedido</span></th>
+            <th className="font-semibold p-4"><span className='flex items-center gap-2'><FaEllipsisVertical />Ações</span></th>
           </tr>
         </thead>
         <tbody>

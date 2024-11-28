@@ -10,7 +10,7 @@ export default function LoggedUserIcon({ user }) {
     return (
         <div className="flex items-center space-x-4">
             <span className="font-bold text-blue-800">{user.name}</span>
-            <img src={user.img} alt="Icone do usuario" className="w-10 h-10 object-cover rounded-full" />
+            <img src={user.img} alt={user.name} className="w-10 h-10 object-cover rounded-full" />
             <button className="text-blue-800 hover:text-red-700"
                 title="Sair"
                 data-tip="Sair"
