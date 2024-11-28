@@ -30,19 +30,19 @@ export default function Navbar() {
                     <div className="flex space-x-8 text-blue-800 font-bold">
                         <img src={resgateLogo} className="cursor-pointer" alt="Resgate Logo" onClick={() => navigate("/")} />
 
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
+                        <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/")} >
                             Home
                         </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/pet")} >
+                        <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/pet")} >
                             Adotar
                         </a>
                         {access === 'ADMIN' && (
-                            <a className="cursor-pointer py-2" onClick={() => navigate("/adoption")} >
+                            <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/adoption")} >
                                 Controle de adoção
                             </a>
                         )}
                         {access === 'ADMIN' && (
-                            <a className="cursor-pointer py-2" onClick={() => navigate("/new-pet")} >
+                            <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/new-pet")} >
                                 Adicionar pet
                             </a>
                         )}
