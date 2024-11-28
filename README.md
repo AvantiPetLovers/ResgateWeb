@@ -47,16 +47,21 @@ O projeto faz uso das seguintes ferrramentas, verifique as suas documentações:
 
 1. Baixe e instale o [NodeJS](https://nodejs.org/).
 
-2. Para instalar as dependências, execute o comando na pasta raiz do projeto:
+2. Configure as variaveis de ambiente com:
+   ```
+   copy .env.example .env
+   ```
+
+3. Para instalar as dependências, execute o comando na pasta raiz do projeto:
    ```bash
    npm install
    ```
 
-3. Para rodar o projeto localmente:
+4. Para rodar o projeto localmente:
    ```bash
    npm run dev
    ```
 
-4. O projeto ficará disponível no navegador pelo link http://localhost:5173
+5. O projeto ficará disponível no navegador pelo link http://localhost:5173
 
-5. OBS: O projeto requer que o backend esteja disponível na url http://localhost:3001. Para isso veja o readme do backend em [ResgateAPI](https://github.com/AvantiPetLovers/ResgateAPI)
+6. OBS: O projeto requer que o backend esteja disponível na url http://localhost:3001. Para isso veja o readme do backend em [ResgateAPI](https://github.com/AvantiPetLovers/ResgateAPI)
