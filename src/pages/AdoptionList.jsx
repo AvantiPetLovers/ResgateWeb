@@ -26,6 +26,15 @@ export default function AdoptionList() {
     setStatusFilter(e.target.value);
   };
 
+  // Atualiza o status da adocão
+  const updateAdoptionStatus = (userId, petId, newStatus) => {
+    setAdoptions((prevAdoptions) =>
+      prevAdoptions.map((adoption) =>
+        adoption.user_id === userId && adoption.pet_id === petId ? { ...adoption, status: newStatus } : adoption
+      )
+    );
+  };
+
   const filteredAdoptions = adoptions.filter((adoption) => {
     if (statusFilter === '') {
       return true;
@@ -62,7 +71,7 @@ export default function AdoptionList() {
         </thead>
         <tbody>
           {filteredAdoptions.map((adoption) => (
-            <AdoptionTableLine key={[adoption.user_id, adoption.pet_id]} adoption={adoption} />
+            <AdoptionTableLine key={[adoption.user_id, adoption.pet_id]} adoption={adoption} updateAdoptionStatus={updateAdoptionStatus} />
           ))}
         </tbody>
       </table>

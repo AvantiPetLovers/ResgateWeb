@@ -6,7 +6,7 @@ import { translate } from "../utils/EnumTranslator";
 import { useNavigate } from "react-router-dom";
 
 
-export default function AdoptionTableLine({ adoption }) {
+export default function AdoptionTableLine({ adoption, updateAdoptionStatus }) {
     const { token } = useContext(AuthContext);
     const [user, setUser] = useState({})
     const [pet, setPet] = useState({})
@@ -17,12 +17,14 @@ export default function AdoptionTableLine({ adoption }) {
         const { approveAdoption } = ApiService(token);
         await approveAdoption(adoption.pet_id, adoption.user_id)
         setStatus('APPROVED')
+        updateAdoptionStatus(adoption.user_id, adoption.pet_id, 'APPROVED')
     }
 
     const handleRejection = async () => {
         const { rejectAdoption } = ApiService(token);
         await rejectAdoption(adoption.pet_id, adoption.user_id)
         setStatus('REJECTED')
+        updateAdoptionStatus(adoption.user_id, adoption.pet_id, 'REJECTED')
     }
 
     // Busca os adocoes no banco de dados
