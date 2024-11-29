@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   const [layoutVisible, setLayoutVisible] = useState();
 
   useEffect(() => {
-    if (location.pathname === "/login" || location.pathname === "/register") {
+    if (location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/new-pet") {
       setLayoutVisible(false)
     } else {
       setLayoutVisible(true)
