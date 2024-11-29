@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { ApiService } from "../services/ApiService";
 import LoggedUserIcon from "./LoggedUserIcon";
+import CustomButton from "./CustomButton";
 
 export default function Navbar() {
     const [user, setUser] = useState({});
@@ -29,19 +30,19 @@ export default function Navbar() {
                     <div className="flex space-x-8 text-blue-800 font-bold">
                         <img src={resgateLogo} className="cursor-pointer" alt="Resgate Logo" onClick={() => navigate("/")} />
 
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/")} >
+                        <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/")} >
                             Home
                         </a>
-                        <a className="cursor-pointer py-2" onClick={() => navigate("/pet")} >
+                        <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/pet")} >
                             Adotar
                         </a>
                         {access === 'ADMIN' && (
-                            <a className="cursor-pointer py-2" onClick={() => navigate("/adoption")} >
+                            <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/adoption")} >
                                 Controle de adoção
                             </a>
                         )}
                         {access === 'ADMIN' && (
-                            <a className="cursor-pointer py-2" onClick={() => navigate("/new-pet")} >
+                            <a className="cursor-pointer py-2 hover:text-sky-950 hover:underline" onClick={() => navigate("/new-pet")} >
                                 Adicionar pet
                             </a>
                         )}
@@ -50,10 +51,13 @@ export default function Navbar() {
                     {userId ? (
                         <LoggedUserIcon user={user} />
                     ) : (
-                        <button className="border border-blue-800 text-blue-800 font-semibold py-2 px-4 rounded-full hover:bg-blue-800 hover:text-white transition duration-300"
-                            onClick={() => navigate("/login")}>
-                            Entrar
-                        </button>
+                        <CustomButton
+                            text="Entrar"
+                            onClick={() => navigate("/login")}
+                            color="blue"
+                            variant="outlined"
+                        />
+
                     )}
                 </div>
             </div>
