@@ -1,65 +1,52 @@
-import { useContext, useState } from 'react'
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
+import { useForm } from 'react-hook-form';
+import CustomButton from '../components/CustomButton';
 import { ApiService } from '../services/ApiService';
-
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  const { sign, token } = useContext(AuthContext);
-  const { login } = ApiService(token);
   const navigate = useNavigate();
+  const { token, sign } = useContext(AuthContext);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [loginError, setLoginError] = useState(null);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     try {
-      const response = await login({ email, password });
-      if (response.status !== 200) {
-        setError(true);
-        return;
-      }
-      sign(response.data)
+      const { login } = ApiService(token);
+      const response = await login(data);
+      sign(response.data);
       navigate("/");
     } catch (error) {
-      setError(true);
-      console.log(error);
+      setLoginError('Email ou senha incorretos.');
+      console.error('Erro ao logar:', error);
     }
-  }
+  };
 
   return (
-    <>
-      <div>
-        <div >
-          <h2>Login</h2>
-          <form onSubmit={handleLogin}>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                placeholder="Digite seu email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="password">password</label>
-              <input
-                type="password"
-                placeholder="Digite sua password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {error && <label>Email ou password incorretos</label>}
-            <button type="submit" >Entrar</button>
-          </form>
-        </div>
-        <span>
-          Novo aqui?<a className='text-sky-950 font-bold' href="/register">Cadastre-se</a>
-        </span>
-      </div >
-    </>
-  )
+    <div className="flex flex-col items-center p-8">
+      <h1 className="text-2xl font-bold mb-4 text-sky-950">Login</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full max-w-md">
+        <label className="flex flex-col">
+          Email:
+          <input {...register('email', { required: true })} type="email" className="border p-2 rounded-md" />
+          {errors.email && <span className="text-red-500">Email é obrigatório</span>}
+        </label>
+        <label className="flex flex-col">
+          Senha:
+          <input {...register('password', { required: true })} type="password" className="border p-2 rounded-md" />
+          {errors.password && <span className="text-red-500">Senha é obrigatória</span>}
+        </label>
+        {loginError && <div className="text-red-500 mb-4">{loginError}</div>}
+        <CustomButton type="submit" text="Entrar" />
+      </form>
+      <div className="mt-4">
+        <span>Não tem uma conta? </span>
+        <button className="text-blue-500 hover:underline" onClick={() => navigate("/register")}>
+          Registre-se
+        </button>
+      </div>
+    </div>
+  );
 }
+
