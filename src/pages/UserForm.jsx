@@ -34,7 +34,7 @@ export default function UserForm() {
         </label>
         <label className="flex flex-col">
           Imagem:
-          <input {...register('img', { required: true })} type="text" className="border p-2 rounded-md" />
+          <input {...register('img', { required: true })} type="text" placeholder='https://...' className="border p-2 rounded-md" />
           {errors.img && <span className="text-red-500">Imagem é obrigatória</span>}
         </label>
         <label className="flex flex-col">
