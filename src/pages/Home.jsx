@@ -1,29 +1,13 @@
-import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ApiService } from "../services/ApiService";
-import PetCard from "../components/PetCard";
-import { AuthContext } from "../contexts/AuthContext";
 import boasVindasImg from "../assets/home.png";
 import sobreImg from "../assets/sobre.png";
+import PetListLine from '../components/PetListLine';
 
 export default function Home() {
-  const navigate = useNavigate();
-  const [pets, setPets] = useState([]);
-  const { token } = useContext(AuthContext);
-
-  // Busca os pets no banco de dados
-  useEffect(() => {
-    const { findPets } = ApiService(token);
-    const listPets = async () => {
-      const { data } = await findPets();
-      setPets(data.slice(0, 4));
-    };
-    listPets();
-  }, [token]);
+    const navigate = useNavigate();
 
   return (
     <>
-      {/* TODO: Issue 4 */}
       <div className="bg-gradient-to-r from-blue-500 to-blue-300 flex items-center justify-center m-12 p-10 rounded-lg h-[500px] shadow-lg">
         <div className="text-white max-w-lg">
           <h1 className="text-4xl font-extrabold mb-6">
@@ -50,6 +34,8 @@ export default function Home() {
         </div>
       </div>
 
+            <PetListLine title="Quer Adotar?" subTitle="Confira Nossos Pets" />
+
       <div className="m-12 ">
         <div className="flex justify-between mb-8">
           <div>
@@ -72,7 +58,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* TODO: Issue 6 */}
       <div className="bg-gray-100 m-12 p-10 rounded-lg shadow-lg grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h1 className="text-3xl font-extrabold text-blue-600 mb-4">
@@ -94,7 +79,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* TODO: Issue 6 */}
       <div className="bg-blue-100 m-12 p-10 rounded-lg shadow-lg">
   <h1 className="text-3xl font-extrabold text-blue-600 mb-6">
     📞 Entre em Contato

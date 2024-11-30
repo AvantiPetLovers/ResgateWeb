@@ -32,9 +32,9 @@ export default function App() {
           <Route path="/adoption" element={<AuthLoggedAdmin component={AdoptionList} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<UserForm />} />
-          <Route path="/pet-detail" element={<PetDetail />} />
           <Route path="/new-pet" element={<AuthLoggedAdmin component={PetForm} />} />
           <Route path="/pet" element={<PetList />} />
+          <Route path="/pet/:id" element={<PetDetail />} />
         </Routes>
       </Layout>
     </BrowserRouter>
