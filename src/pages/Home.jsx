@@ -8,9 +8,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-blue-500 to-blue-300 flex items-center justify-center m-12 p-10 rounded-lg h-[500px] shadow-lg">
+      <div className="bg-gradient-to-r from-blue-500 to-blue-300 flex items-center justify-center m-12 p-10 rounded-lg h-[500px] shadow-lg overflow-hidden">
         <div className="text-white max-w-lg">
-          <h1 className="text-4xl font-extrabold mb-6">
+          <h1 className="text-4xl font-extrabold mb-6 whitespace-nowrap overflow-hidden text-ellipsis">
             Bem-vindo ao Resgate 2.0!
           </h1>
           <p className="text-lg leading-relaxed mb-8">
@@ -29,7 +29,7 @@ export default function Home() {
           <img
             src={boasVindasImg}
             alt="Adote um Pet"
-            className="rounded-lg shadow-lg"
+            className="rounded-lg shadow-lg w-full h-full object-cover"
           />
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function Home() {
             ✉️ <strong>Email:</strong> contato@resgate20.com
           </li>
           <li>
-            📱 <strong>WhatsApp:</strong> (xx) xxxx-xxxx
+            📱 <strong>WhatsApp:</strong> (99) 9999-9999
           </li>
           <li>
             📍 <strong>Endereço:</strong> Rua Amor aos Animais, nº 123, Sua Cidade, Seu Estado
