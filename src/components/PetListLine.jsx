@@ -36,7 +36,7 @@ export default function PetListLine({ title, subTitle }) {
                     variant="outlined"
                 />
             </div>
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap mb-8 overflow-hidden">
                 {pets.map((pet) => (
                     <PetCard key={pet.id} pet={pet} />
                 ))}

@@ -77,7 +77,7 @@ export default function PetList() {
           <h1 className="font-bold text-2xl text-sky-950">Adotar</h1>
           <span className="text-xs font-bold pt-3">{pets.length} resultados encontrados</span>
         </div>
-        <div className="flex flex-wrap gap-8 mb-8">
+        <div className="flex flex-wrap mb-8 overflow-hidden">
           {pets.map((pet) => (
             <PetCard key={pet.id} pet={pet} />
           ))}
