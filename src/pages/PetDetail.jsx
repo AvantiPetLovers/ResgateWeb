@@ -25,9 +25,8 @@ export default function PetDetail() {
         console.error("Erro ao buscar o pet:", error);
       }
     };
-    if (token && id) {
-      getPet();
-    }
+    getPet();
+
   }, [token, id]);
 
   // Busca os pedidos de adocoes do usuario no banco de dados
@@ -58,55 +57,54 @@ export default function PetDetail() {
   };
 
   return (
-        <>
-    <div className="flex gap-8 m-12">
-      <img src={pet.img} alt={pet.name} className="w-1/2 h-96 object-cover rounded-lg" />
-      <div className="w-1/2 flex flex-col">
-        <h2 className="text-3xl font-semibold text-sky-950">{pet.name}</h2>
-        <p className="text-gray-600 mb-8">{translate(pet.species) && translate(pet.species).toUpperCase()}</p>
-        {!userId &&
-          <CustomButton text="Faça login para adotar" variant="filled" onClick={() => navigate("/login")} />
-        }
-        {(userId && !userAdoptionRequest) &&
-          <CustomButton text="Adotar" variant="filled" onClick={handleAdoption} />
-        }
-        {userId && userAdoptionRequest && (
-          <span
-            className={`font-semibold py-2 px-4 rounded-full ${
-              userAdoptionRequest.status === "APPROVED"
-                ? "text-green-600 bg-green-100"
-                : userAdoptionRequest.status === "REJECTED"
-                ? "text-red-600 bg-red-100"
-                : "text-gray-600 bg-gray-100"
-            }`}
-          >
-            {"Status do pedido de adoção: " + translate(userAdoptionRequest.status)}
-          </span>
-        )}
+    <>
+      <div className="flex gap-8 m-12">
+        <img src={pet.img} alt={pet.name} className="w-1/2 h-96 object-cover rounded-lg" />
+        <div className="w-1/2 flex flex-col">
+          <h2 className="text-3xl font-semibold text-sky-950">{pet.name}</h2>
+          <p className="text-gray-600 mb-8">{translate(pet.species) && translate(pet.species).toUpperCase()}</p>
+          {!userId &&
+            <CustomButton text="Faça login para adotar" variant="filled" onClick={() => navigate("/login")} />
+          }
+          {(userId && !userAdoptionRequest) &&
+            <CustomButton text="Adotar" variant="filled" onClick={handleAdoption} />
+          }
+          {userId && userAdoptionRequest && (
+            <span
+              className={`font-semibold py-2 px-4 rounded-full ${userAdoptionRequest.status === "APPROVED"
+                  ? "text-green-600 bg-green-100"
+                  : userAdoptionRequest.status === "REJECTED"
+                    ? "text-red-600 bg-red-100"
+                    : "text-gray-600 bg-gray-100"
+                }`}
+            >
+              {"Status do pedido de adoção: " + translate(userAdoptionRequest.status)}
+            </span>
+          )}
 
-        <table className="text-gray-600 mt-4">
-          <tbody>
-            <tr className="border-b border-gray-300">
-              <td className="font-semibold p-4">Porte:</td>
-              <td>{translate(pet.size)}</td>
-            </tr>
-            <tr className="border-b border-gray-300">
-              <td className="font-semibold p-4">Descrição:</td>
-              <td>{pet.description}</td>
-            </tr>
-            <tr className="border-b border-gray-300">
-              <td className="font-semibold p-4">Idade:</td>
-              <td>{handleAge(pet.birth_date)}</td>
-            </tr>
-            <tr className="border-b border-gray-300">
-              <td className="font-semibold p-4">Personalidade:</td>
-              <td>{translate(pet.personality)}</td>
-            </tr>
-          </tbody>
-        </table>
+          <table className="text-gray-600 mt-4">
+            <tbody>
+              <tr className="border-b border-gray-300">
+                <td className="font-semibold p-4">Porte:</td>
+                <td>{translate(pet.size)}</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="font-semibold p-4">Descrição:</td>
+                <td>{pet.description}</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="font-semibold p-4">Idade:</td>
+                <td>{handleAge(pet.birth_date)}</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="font-semibold p-4">Personalidade:</td>
+                <td>{translate(pet.personality)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <PetListLine title="Não encontrou seu futuro melhor amigo?" subTitle="Veja outros pets para adotar" />
+      <PetListLine title="Não encontrou seu futuro melhor amigo?" subTitle="Veja outros pets para adotar" />
     </>
   );
 }
