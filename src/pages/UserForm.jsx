@@ -24,7 +24,7 @@ export default function UserForm() {
   const password = watch('password');
 
   return (
-    <div className="flex flex-col items-center p-8">
+    <div className="flex flex-col items-center py-8 px-16 m-8 bg-white border border-gray-300 rounded-md shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-sky-950">Cadastro de usuario</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full max-w-md">
         <label className="flex flex-col">
