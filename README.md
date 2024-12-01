@@ -6,6 +6,16 @@
 
 **Objetivo:** Desenvolver uma aplicação web funcional que permita ao abrigo gerenciar seus pets e acompanhar o processo de adoção. A aplicação deve possibilitar o cadastro e visualização de pets, o registro de adotantes e a realização de adoções.
 
+## Capturas de tela
+
+![Home](./docs/Home.png)
+![PetList](./docs/PetList.png)
+![PetDetail](./docs/PetDetail.png)
+![Adoptions](./docs/Adoptions.png)
+![FormLogin](./docs/FormLogin.png)
+![FormPet](./docs/FormPet.png)
+![FormUser](./docs/FormUser.png)
+
 ## Instruções para colaboradores
 
 **Documentação das tecnologias**
